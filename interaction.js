@@ -10,24 +10,20 @@ function DnD(canvas, interactor) {
 
     // Developper les 3 fonctions gérant les événements
     this.pressured = function (evt) {
-        console.log("R");
-        if(evt!== undefined){
-             console.log(getMousePosition(canvas, evt));
+        if (evt !== undefined) {
+            console.log(getMousePosition(canvas, evt));
         }
     }
     this.moving = function (evt) {
-        console.log("B");
-        if(evt!== undefined){
-        console.log(getMousePosition(canvas, evt));
-    }
-
+        if (evt !== undefined) {
+            console.log(getMousePosition(canvas, evt));
+        }
     }
     this.released = function (evt) {
-        console.log("K");
-         if(evt!== undefined){
-               console.log(getMousePosition(canvas, evt));
-       }
-   }
+        if (evt !== undefined) {
+            console.log(getMousePosition(canvas, evt));
+        }
+    }
 
     // Associer les fonctions précédentes aux évènements du canvas.
     canvas.addEventListener("mousedown",this.pressured(interactor), false);

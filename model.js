@@ -23,6 +23,10 @@ function Line(x,y,z,t,thickness, color){
     this.t = t;
 }
 
+function Dn() {
+
+}
+
 // N'oubliez pas l'héritage !
 
 Rectangle.prototype= new Form();
