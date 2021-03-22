@@ -3,10 +3,12 @@
 function Drawing(listForm){
     this.listForm = listForm;
 }
+
 function Form(color, thickness){
     this.color = color;
     this.thickness = thickness;
 }
+
 function Rectangle(x, y, width, length,thickness, color){
     Form.call(this, color, thickness);
     this.x = x;
@@ -21,10 +23,6 @@ function Line(x,y,z,t,thickness, color){
     this.y = y;
     this.z = z;
     this.t = t;
-}
-
-function Dn() {
-
 }
 
 // N'oubliez pas l'héritage !
