@@ -6,7 +6,7 @@ canvas.width=800
 canvas.height=600
 
 // Code temporaire pour tester le DnD
-new DnD(canvas);
+// new DnD(canvas);
 ctx.fillStyle = '#F0F0F0'; // set canvas' background color
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 /////
@@ -23,6 +23,10 @@ var ligne = new Line(10, 20, 50, 100, 5, '#f3167e');
 
 
 // tester également Dessin.
+// var drawing = new Drawing();
+// drawing.addlistForm(rec);
+// drawing.addlistForm(ligne);
+// drawing.paint(ctx, canvas);
 
 
 // Code final à utiliser pour manipuler Pencil.
