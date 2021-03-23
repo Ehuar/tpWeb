@@ -1,8 +1,16 @@
 
 // Implémenter ici les 4 classes du modèle.
-function Drawing(listForm){
-    this.listForm = listForm;
+function Drawing(){
+    this.listForm = [];
+    this.getlistForm = function() {
+        return this.listForm;
+    }.bind(this);
+
+    this.addlistForm = function (listForm){
+        this.listForm.push(listForm)
+    }.bind(this);
 }
+
 
 function Form(color, thickness){
     this.color = color;
@@ -25,7 +33,7 @@ function Line(x,y,z,t,thickness, color){
     this.t = t;
 }
 
-// N'oubliez pas l'héritage !
+//héritage !
 
 Rectangle.prototype= new Form();
 Line.prototype = new Form();

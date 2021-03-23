@@ -7,6 +7,7 @@ function DnD(canvas, interactor) {
     this.yInitial = 0;
     this.xFinal = 0;
     this.yFinal = 0;
+    this.pression= false;
 
     // Developper les 3 fonctions gérant les événements
     this.pressured = function (evt) {
@@ -15,26 +16,38 @@ function DnD(canvas, interactor) {
             position = getMousePosition(canvas, evt);
             this.xInitial = position.x;
             this.yInitial = position.y;
+            this.pression= true;
+            interactor.onInteractionStart(this);
+            console.log(this.xInitial + ' pressured ');
+            console.log(this.yInitial);
         }
-    }
+    }.bind(this);
+
     this.moving = function (evt) {
-        if (evt !== undefined) {
-            console.log(getMousePosition(canvas, evt));
+        if (evt !== undefined && this.pression) {
+            this.xFinal = getMousePosition(canvas,evt).x;
+            this.yFinal = getMousePosition(canvas,evt).y;
+            interactor.onInteractionUpdate(this);
+            console.log(this.xFinal + ' moving ');
+            console.log(this.yFinal );
         }
-    }
+    }.bind(this);
+
     this.released = function (evt) {
-        let position;
-        if (evt !== undefined) {
-            position = getMousePosition(canvas, evt);
-            this.xFinal = position.x;
-            this.yFinal = position.y;
+        if (evt !== undefined && this.pression) {
+            this.xFinal = getMousePosition(canvas,evt).x;
+            this.yFinal = getMousePosition(canvas,evt).y;
+            interactor.onInteractionEnd(this);
+            this.pression = false;
+            console.log(this.xFinal + ' released ');
+            console.log(this.yFinal);
         }
-    }
+    }.bind(this);
 
     // Associer les fonctions précédentes aux évènements du canvas.
-    canvas.addEventListener("mousedown",this.pressured(interactor), false);
-    canvas.addEventListener("mousemove",this.moving(interactor), false);
-    canvas.addEventListener("mouseup",this.released(interactor), false);
+    canvas.addEventListener("mousedown",this.pressured, false);
+    canvas.addEventListener("mousemove",this.moving, false);
+    canvas.addEventListener("mouseup",this.released, false);
 }
 
 

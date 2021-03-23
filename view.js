@@ -4,17 +4,19 @@
 Rectangle.prototype.paint = function(ctx) {
   //TODO Manager color
   ctx.beginPath();
-  console.log(getXInitial());
-  //ctx.rect(this.getInitY(), this.getInitY(), this.getFinalX(),   this.getFinalY());
-  ctx.rect(100, 100, 400, 50);
+  ctx.lineWidth = this.thickness;
+  ctx.strokeStyle = this.color;
+  ctx.rect(this.x, this.y, this.width,   this.length);
   ctx.stroke();
 };
 
 Line.prototype.paint = function(ctx) {
   //TODO Manager color
   ctx.beginPath();
-  // ctx.moveTo(this.getInitX(), this.getInitY());
-  // ctx.lineTo(this.getFinalX(), this.getFinalY());
+  ctx.lineWidth = this.thickness;
+  ctx.strokeStyle = this.color;
+  ctx.moveTo(this.x, this.y);
+  ctx.lineTo(this.z, this.t);
   ctx.stroke();
 };
 
@@ -30,5 +32,8 @@ Drawing.prototype.paint = function(ctx) {
   //console.log(this.getForms());
   ctx.fillStyle = '#F0F0F0'; // set canvas' background color
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  this.getlistForm().forEach(function (form) {
+    form.paint(ctx);
+  })
 };
 
