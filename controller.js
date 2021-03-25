@@ -12,7 +12,6 @@ function Pencil(ctx, drawing, canvas) {
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
     this.onInteractionStart = function (dnd) {
-
         this.currEditingMode = document.getElementById("butRect").checked ? editingMode.rect
             : editingMode.line;
         this.currLineWidth = document.getElementById("spinnerWidth").value;
@@ -23,7 +22,7 @@ function Pencil(ctx, drawing, canvas) {
                 break;
             case editingMode.line:
                 this.currentShape = new Line(dnd.xInitial, dnd.yInitial, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
-                break;
+                break
         }
     }.bind(this);
 
@@ -45,10 +44,10 @@ function Pencil(ctx, drawing, canvas) {
             this.currentShape.paint(ctx);
             drawing.addlistForm(this.currentShape);
             drawing.paint(ctx);
+            drawing.updateShapeList();
         }
-
     }.bind(this);
 
-};
+}
 
 
