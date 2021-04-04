@@ -37,7 +37,6 @@ function Pencil(ctx, drawing, canvas) {
     }.bind(this);
 
     this.onInteractionEnd = function (dnd) {
-        console.log(this.currentShape);
         if (this.currentShape !== 0) {
             this.currentShape.xFinal = dnd.xFinal;
             this.currentShape.yFinal = dnd.yFinal;

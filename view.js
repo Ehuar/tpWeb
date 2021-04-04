@@ -41,10 +41,27 @@ Drawing.prototype.paint = function (ctx) {
 }
 
 Drawing.prototype.updateShapeList = function () {
+
     let text = "";
-    this.getlistForm().forEach(function (form) {
-        text += "<li>" + form + "</li>";
+    this.getlistForm().forEach(function (form, i) {
+        let li = document.createElement("li");
+        li.textContent = form;
+        console.log(i);
+        let button = document.createElement("button");
+        button.className = "btn btn-default";
+        // button.onlick = this.drawing.removeForm(button);
+        // button.setAttribute("onclick", this.drawing.removeForm(form));
+        button.addEventListener("click", this.drawing.removeForm(form), false);
+        let span = document.createElement("span");
+        span.className = "glyphicon glyphicon-remove-sign";
+        button.appendChild(span);
+        li.appendChild(button);
+        document.getElementById("shapeList").appendChild(li);
+
     });
-    document.getElementById("shapeList").innerHTML = text;
 };
+
+removeForm = function (){
+
+}
 

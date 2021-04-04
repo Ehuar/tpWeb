@@ -1,5 +1,6 @@
 // Implémenter ici les 4 classes du modèle.
 function Drawing() {
+    this.form = null;
     this.listForm = [];
     this.getlistForm = function () {
         return this.listForm;
@@ -7,6 +8,11 @@ function Drawing() {
 
     this.addlistForm = function (listForm) {
         this.listForm.push(listForm)
+    }.bind(this);
+
+    this.removeForm = function (form) {
+        console.log(form);
+        //this.listForm.splice(form, 1);
     }.bind(this);
 }
 
