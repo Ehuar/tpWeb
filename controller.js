@@ -9,6 +9,7 @@ function Pencil(ctx, drawing, canvas) {
     // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
     new DnD(canvas, this);
+    // new DnDe(canvas, this);
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
     this.onInteractionStart = function (dnd) {
@@ -22,13 +23,13 @@ function Pencil(ctx, drawing, canvas) {
                 break;
             case editingMode.line:
                 this.currentShape = new Line(dnd.xInitial, dnd.yInitial, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
-                break
+                break;
         }
     }.bind(this);
 
     this.onInteractionUpdate = function (dnd) {
         if (this.currentShape !== 0) {
-            // this.currentShape.clear(ctx);
+            this.currentShape.clear(ctx);
             this.currentShape.xFinal = dnd.xFinal;
             this.currentShape.yFinal = dnd.yFinal;
             drawing.paint(ctx);

@@ -1,6 +1,5 @@
 // Implémenter ici les 4 classes du modèle.
 function Drawing() {
-    this.form = null;
     this.listForm = [];
     this.getlistForm = function () {
         return this.listForm;
@@ -11,8 +10,10 @@ function Drawing() {
     }.bind(this);
 
     this.removeForm = function (form) {
-        console.log(form);
-        //this.listForm.splice(form, 1);
+        this.listForm.splice(this.listForm.indexOf(form), 1);
+        console.log(this.listForm);
+        this.updateShapeList();
+        this.paint(ctx);
     }.bind(this);
 }
 
@@ -22,20 +23,20 @@ function Form(color, thickness) {
     this.thickness = thickness;
 }
 
-function Rectangle(x, y, width, length, thickness, color) {
+function Rectangle(xInitial, yInitial, xFinal, yFinal, thickness, color) {
     Form.call(this, color, thickness);
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.length = length;
+    this.xInitial = xInitial;
+    this.yInitial = yInitial;
+    this.xFinal = xFinal;
+    this.yFinal = yFinal;
 }
 
-function Line(x, y, z, t, thickness, color) {
+function Line(xInitial, yInitial, xFinal, yFinal, thickness, color) {
     Form.call(this, color, thickness);
-    this.x = x;
-    this.y = y;
-    this.z = z;
-    this.t = t;
+    this.xInitial = xInitial;
+    this.yInitial = yInitial;
+    this.xFinal = xFinal;
+    this.yFinal = yFinal;
 }
 
 //héritage !
