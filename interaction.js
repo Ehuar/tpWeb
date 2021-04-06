@@ -1,6 +1,7 @@
 // La création d'un Dnd requière un canvas et un interacteur.
 // L'interacteur viendra dans un second temps donc ne vous en souciez pas au départ.
 
+// fait avec class
 /*class DnDe {
     // Définir ici les attributs de la 'classe'
     xInitial = 0;
@@ -70,7 +71,7 @@ function DnD(canvas, interactor) {
         this.yInitial = position.y;
         this.pression = true;
         interactor.onInteractionStart(this);
-        console.log(this.xInitial + ' pressured ');
+        console.log(this.xInitial);
         console.log(this.yInitial);
     }.bind(this);
 
